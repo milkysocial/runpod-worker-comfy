@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ docker-integration ]
+    branches: [ impact-essentials ]
 
 jobs:
   docker:
@@ -31,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/runpod-worker-comfy:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/runpod-worker-comfy:join_the_team
           platforms: linux/amd64
           build-args: |
             MODEL_TYPE=sdxl
