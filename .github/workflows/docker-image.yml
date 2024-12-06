@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ impact-essentials ]
+    branches: [ impact-essentials-compress ]
 
 jobs:
   docker:
@@ -25,6 +25,7 @@ jobs:
           driver: cloud
           endpoint: "${{ vars.DOCKER_USER }}/test001"
           install: true
+          buildkitd-flags: --compress
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
