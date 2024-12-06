@@ -1,0 +1,11 @@
+[
+    {
+      "repo": "https://github.com/fofr/ComfyUI-Impact-Pack",
+      "commit": "9ad8f85",
+      "notes": "Fork of https://github.com/ltdrdata/ComfyUI-Impact-Pack which prevents automatic installation of dependencies"
+    },
+    {
+      "repo": "https://github.com/cubiq/ComfyUI_essentials",
+      "commit": "5a4e5cd"
+    }
+  ]

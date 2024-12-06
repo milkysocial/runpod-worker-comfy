@@ -1,0 +1,23 @@
+[
+    {
+      "repo": "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+      "commit": "b188a6c"
+    },
+    {
+      "repo": "https://github.com/Fannovel16/comfyui_controlnet_aux",
+      "commit": "5a049bd"
+    },
+    {
+      "repo": "https://github.com/fofr/ComfyUI-Impact-Pack",
+      "commit": "9ad8f85",
+      "notes": "Fork of https://github.com/ltdrdata/ComfyUI-Impact-Pack which prevents automatic installation of dependencies"
+    },
+    {
+      "repo": "https://github.com/cubiq/ComfyUI_essentials",
+      "commit": "5a4e5cd"
+    },
+    {
+      "repo": "https://github.com/cubiq/ComfyUI_InstantID",
+      "commit": "1ef34ef"
+    }
+  ]
