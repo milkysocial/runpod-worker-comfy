@@ -10,7 +10,7 @@ It reads a JSON file containing repositories and their commit hashes, clones the
 and then checks out to the specified commit.
 """
 
-json_file = "custom_nodes_essentials_pack.json"
+json_file = "src/custom_nodes_essentials_pack.json"
 comfy_dir = "ComfyUI"
 custom_nodes_dir = f"{comfy_dir}/custom_nodes/"
 

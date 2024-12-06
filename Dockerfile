@@ -51,7 +51,7 @@ RUN chmod +x /start.sh /restore_snapshot.sh
 
 # Restore the snapshot to install custom nodes
 
-RUN python /comfyui/src/install_custom_nodes.py
+RUN python src/install_custom_nodes.py
 #RUN /restore_snapshot.sh
 # Start container
 CMD ["/start.sh"]
