@@ -34,45 +34,20 @@ WORKDIR /comfyui
 # Install runpod
 RUN pip install runpod requests
 
-# Support for the network volume
-ADD src/extra_model_paths.yaml ./
+# Copy additional configuration and scripts
+ADD src/extra_model_paths.yaml ./src/extra_model_paths.yaml
+ADD src/install_custom_nodes.py ./src/install_custom_nodes.py
+ADD src/start.sh ./start.sh
+ADD src/rp_handler.py ./rp_handler.py
+ADD test_input.json ./test_input.json
 
-# Go back to the root
-WORKDIR /
+RUN chmod +x ./start.sh
 
+# Debug: List files in /comfyui/src to ensure everything is copied
+RUN ls -la ./src
 
-# Add scripts
-ADD src/start.sh src/restore_snapshot.sh src/rp_handler.py test_input.json ./
-RUN chmod +x /start.sh /restore_snapshot.sh
-
-# Optionally copy the snapshot file
-#ADD *snapshot*.json /
-#ADD impact-pack-essentials_snapshot.json /
-
-# Restore the snapshot to install custom nodes
-
+# Install custom nodes
 RUN python src/install_custom_nodes.py
-#RUN /restore_snapshot.sh
-# Start container
+
+# Set the default command to start the container
 CMD ["/start.sh"]
-
-# Stage 2: Download models
-#FROM base AS downloader
-
-#ARG HUGGINGFACE_ACCESS_TOKEN
-#ARG MODEL_TYPE
-
-# Change working directory to ComfyUI
-#WORKDIR /comfyui
-# lance commande python pour executer le fichier src/install_custom_nodes.json
-#RUN python -c "from comfyui import download_model; download_model('huggingface', 'facebook/bart-large-cnn', '/comfyui/models')"
-
-# Stage 3: Final image
-#FROM base AS final
-
-# Copy models from stage 2 to the final image
-#COPY --from=downloader /comfyui/models /comfyui/models
-
-# Start container
-#CMD ["/start.sh"]
-
