@@ -47,11 +47,12 @@ RUN chmod +x /start.sh /restore_snapshot.sh
 
 # Optionally copy the snapshot file
 #ADD *snapshot*.json /
-ADD impact-pack-essentials_snapshot.json /
+#ADD impact-pack-essentials_snapshot.json /
 
 # Restore the snapshot to install custom nodes
-RUN /restore_snapshot.sh
 
+
+#RUN /restore_snapshot.sh
 # Start container
 CMD ["/start.sh"]
 
@@ -63,7 +64,9 @@ ARG MODEL_TYPE
 
 # Change working directory to ComfyUI
 #WORKDIR /comfyui
-
+# lance commande python pour executer le fichier src/install_custom_nodes.json
+RUN python /comfyui/src/install_custom_nodes.py
+#RUN python -c "from comfyui import download_model; download_model('huggingface', 'facebook/bart-large-cnn', '/comfyui/models')"
 
 # Stage 3: Final image
 FROM base AS final
@@ -73,3 +76,4 @@ FROM base AS final
 
 # Start container
 CMD ["/start.sh"]
+
