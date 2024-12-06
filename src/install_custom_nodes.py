@@ -14,6 +14,7 @@ json_file = "src/custom_nodes_essentials_pack.json"
 comfy_dir = "ComfyUI"
 custom_nodes_dir = f"{comfy_dir}/custom_nodes/"
 
+
 with open(json_file, "r") as file:
     repos = json.load(file)
 

@@ -42,6 +42,7 @@ ADD src/rp_handler.py ./rp_handler.py
 ADD test_input.json ./test_input.json
 ADD src/custom_nodes_essentials_pack.json ./src/custom_nodes_essentials_pack.json
 
+
 RUN chmod +x ./start.sh
 
 # Debug: List files in /comfyui/src to ensure everything is copied
